@@ -7,8 +7,8 @@ import (
 )
 
 func (s *SplitStore) gcHotstore() {
-	// we only perform moving gc every 10 compactions as it can take a while
-	if s.compactionIndex%10 != 0 {
+	// we only perform moving gc every 20 compactions (about once a week) as it can take a while
+	if s.compactionIndex%20 != 0 {
 		goto online_gc
 	}
 
